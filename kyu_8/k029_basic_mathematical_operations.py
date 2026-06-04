@@ -36,3 +36,9 @@ def basic_op_v2(operation, value1, value2):
         '/': operator.truediv
     }
     return actions[operation](value1, value2)
+
+
+assert basic_op('+', 4, 7) == 11
+assert basic_op('-', 15, 18) == -3
+assert basic_op('*', 5, 5) == 25
+assert basic_op('/', 49, 7) == 7
