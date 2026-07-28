@@ -39,6 +39,12 @@ return value must be Newton for force (obviously)
 
 μ copy this from here to use it in your solution
 """
+import math
+
+
+def assert_approx_equals(actual, expected, rel_tol=1e-9, abs_tol=0.0):
+    if not math.isclose(actual, expected, rel_tol=rel_tol, abs_tol=abs_tol):
+        raise AssertionError(f"Expected {expected}, actual {actual}")
 
 
 def solution(arr_val, arr_unit):
@@ -72,8 +78,6 @@ def solution(arr_val, arr_unit):
     return G * m1 * m2 / (r ** 2)
 
 
-print(solution([1000, 1000, 100], ["kg", "kg", "m"]))
-
-assert solution([1000, 1000, 100], ["g", "kg", "m"]) == 6.67e-12
-assert solution([1000, 1000, 100], ["kg", "kg", "m"]) == 6.667e-9
-assert solution([1000, 1000, 100], ["kg", "kg", "cm"]) == 0.0000667
+assert_approx_equals(solution([1000, 1000, 100], ["g", "kg", "m"]), 6.67e-12)
+assert_approx_equals(solution([1000, 1000, 100], ["kg", "kg", "m"]), 6.6699999999999995e-09)
+assert_approx_equals(solution([1000, 1000, 100], ["kg", "kg", "cm"]), 0.0000667)
