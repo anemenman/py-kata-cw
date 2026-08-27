@@ -29,3 +29,12 @@ assert validate_pin("00000000") == False
 
 assert validate_pin("a234") == False
 assert validate_pin(".234") == False
+
+assert validate_pin("1234") == True
+assert validate_pin("0000") == True
+assert validate_pin("1111") == True
+assert validate_pin("123456") == True
+assert validate_pin("098765") == True
+assert validate_pin("000000") == True
+assert validate_pin("123456") == True
+assert validate_pin("090909") == True
