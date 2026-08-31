@@ -20,7 +20,7 @@ The second value in the first pair in the array is 0, since the bus is empty in 
 
 
 def number(bus_stops):
-    return sum(on - off for on, off in bus_stops)
+    return sum(i - o for i, o in bus_stops)
 
 
 assert number([[10, 0], [3, 5], [5, 8]]) == 5
