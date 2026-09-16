@@ -61,3 +61,9 @@ assert scale("lxnT\nqiut\nZZll\nFElq", 1, 2) == "lxnT\nlxnT\nqiut\nqiut\nZZll\nZ
 r = ("YYVVjjoossWW\nYYVVjjoossWW\nHHGGhhKKGGZZ\nHHGGhhKKGGZZ\nLLHHNNMMLLmm\nLLHHNNMMLLmm\nJJttccWWCCjj\n"
      "JJttccWWCCjj\nggVVttjjyykk\nggVVttjjyykk\nOOJJBBkkOOKK\nOOJJBBkkOOKK")
 assert scale("YVjosW\nHGhKGZ\nLHNMLm\nJtcWCj\ngVtjyk\nOJBkOK", 2, 2) == r
+
+r = "YVjosW\nYVjosW\nHGhKGZ\nHGhKGZ\nLHNMLm\nLHNMLm\nJtcWCj\nJtcWCj\ngVtjyk\ngVtjyk\nOJBkOK\nOJBkOK"
+assert scale("YVjosW\nHGhKGZ\nLHNMLm\nJtcWCj\ngVtjyk\nOJBkOK", 1, 2) == r
+
+assert scale("WgaB\nMmIn\nqJwv\nAhho", 2, 1) == "WWggaaBB\nMMmmIInn\nqqJJwwvv\nAAhhhhoo"
+assert scale("CG\nla", 2, 3) == "CCGG\nCCGG\nCCGG\nllaa\nllaa\nllaa"
