@@ -49,3 +49,15 @@ def scale(strng, k, v):
             result.append(scaled_line)
 
     return '\n'.join(result)
+
+
+a = "abcd\nefgh\nijkl\nmnop"
+r = "aabbccdd\naabbccdd\naabbccdd\neeffgghh\neeffgghh\neeffgghh\niijjkkll\niijjkkll\niijjkkll\nmmnnoopp\nmmnnoopp\nmmnnoopp"
+assert scale(a, 2, 3) == r
+assert scale("", 5, 5) == ""
+assert scale("Kj\nSH", 1, 2) == "Kj\nKj\nSH\nSH"
+assert scale("lxnT\nqiut\nZZll\nFElq", 1, 2) == "lxnT\nlxnT\nqiut\nqiut\nZZll\nZZll\nFElq\nFElq"
+
+r = ("YYVVjjoossWW\nYYVVjjoossWW\nHHGGhhKKGGZZ\nHHGGhhKKGGZZ\nLLHHNNMMLLmm\nLLHHNNMMLLmm\nJJttccWWCCjj\n"
+     "JJttccWWCCjj\nggVVttjjyykk\nggVVttjjyykk\nOOJJBBkkOOKK\nOOJJBBkkOOKK")
+assert scale("YVjosW\nHGhKGZ\nLHNMLm\nJtcWCj\ngVtjyk\nOJBkOK", 2, 2) == r
