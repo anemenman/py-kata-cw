@@ -22,8 +22,28 @@ Input >> Output Examples:
 """
 
 
+# Conclusion: A number can be represented as the sum of two or more consecutive natural numbers
+# if and only if it is NOT a power of two.
+
 def consecutive_ducks(n: int) -> bool:
+    # If n is a power of two, return False, otherwise True.
     return (n & (n - 1)) != 0
+
+
+from math import log2
+
+
+# Disadvantages and potential risks of this solution:
+# 1) Using floating point numbers for an integer problem:
+# problems, it is considered good practice to use floating-point numbers when solving a problem with integers. If the
+# constraint were, for example, the log2 method might fail due to loss of precision (for example, log2(2**54) might
+# return 54.000000000000001,
+# and .is_integer() would return False when it should be True).
+# 2) Performance: Calling a function from the math module, converting an integer to a float, and calculating the
+# logarithm is slightly slower than a single CPU bitwise & operation. (Although in practice, the difference is
+# nanoseconds, and for this task, it's not critical.)
+def consecutive_ducks2(n):
+    return not log2(n).is_integer()
 
 
 assert consecutive_ducks(69) == True
