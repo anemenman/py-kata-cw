@@ -22,8 +22,19 @@ Input >> Output Examples:
 """
 
 
+# Conclusion: A number can be represented as the sum of two or more consecutive natural numbers
+# if and only if it is NOT a power of two.
+
 def consecutive_ducks(n: int) -> bool:
+    # If n is a power of two, return False, otherwise True.
     return (n & (n - 1)) != 0
+
+
+from math import log2
+
+
+def consecutive_ducks2(n):
+    return not log2(n).is_integer()
 
 
 assert consecutive_ducks(69) == True
