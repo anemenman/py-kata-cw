@@ -33,6 +33,10 @@ def consecutive_ducks(n: int) -> bool:
 from math import log2
 
 
+# problems, it is considered good practice to use floating-point numbers when solving a problem with integers. If the
+# constraint were, for example, the log2 method might fail due to loss of precision (for example, log2(2**54) might
+# return 54.000000000000001,
+# and .is_integer() would return False when it should be True).
 def consecutive_ducks2(n):
     return not log2(n).is_integer()
 
