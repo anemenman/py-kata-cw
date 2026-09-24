@@ -28,6 +28,17 @@ def pascals_triangle(n: int) -> list[int]:
     return result
 
 
+from math import comb
+
+
+def pascals_triangle_v2(n: int) -> list[int]:
+    return [comb(i, k) for i in range(n) for k in range(i + 1)]
+
+
 assert pascals_triangle(1) == [1]
 assert pascals_triangle(2) == [1, 1, 1]
 assert pascals_triangle(3) == [1, 1, 1, 1, 2, 1]
+
+assert pascals_triangle_v2(1) == [1]
+assert pascals_triangle_v2(2) == [1, 1, 1]
+assert pascals_triangle_v2(3) == [1, 1, 1, 1, 2, 1]
