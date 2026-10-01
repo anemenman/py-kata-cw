@@ -46,6 +46,33 @@ def decrypt(text, n):
     return text
 
 
+# If N is very large, the iterative approach may be slow. A cyclic permutation decomposition can be used, which makes
+# the complexity O(L) regardless of N:
+def encrypt_v2(text, n):
+    if not text or n <= 0:
+        return text
+
+    L = len(text)
+    k = L // 2
+    visited = [False] * L
+    result = [''] * L
+
+    for i in range(L):
+        if not visited[i]:
+            cycle = []
+            j = i
+            while not visited[j]:
+                visited[j] = True
+                cycle.append(j)
+                j = 2 * j + 1 if j < k else 2 * (j - k)
+
+            shift = n % len(cycle)
+            for idx in range(len(cycle)):
+                result[cycle[idx]] = text[cycle[(idx + shift) % len(cycle)]]
+
+    return ''.join(result)
+
+
 assert encrypt("This is a test!", 0) == "This is a test!"
 assert encrypt("This is a test!", 1) == "hsi  etTi sats!"
 assert encrypt("This is a test!", 2) == "s eT ashi tist!"
@@ -66,3 +93,11 @@ assert encrypt("", 0) == ""
 assert decrypt("", 0) == ""
 assert encrypt(None, 0) is None
 assert decrypt(None, 0) is None
+
+assert encrypt_v2("This is a test!", 0) == "This is a test!"
+assert encrypt_v2("This is a test!", 1) == "hsi  etTi sats!"
+assert encrypt_v2("This is a test!", 2) == "s eT ashi tist!"
+assert encrypt_v2("This is a test!", 3) == " Tah itse sits!"
+assert encrypt_v2("This is a test!", 4) == "This is a test!"
+assert encrypt_v2("This is a test!", -1) == "This is a test!"
+assert encrypt_v2("This kata is very interesting!", 1) == "hskt svr neetn!Ti aai eyitrsig"
