@@ -16,6 +16,8 @@ from functools import reduce
 from operator import xor
 
 
+# XOR provides commutativity and associativity, so the order does not matter - all pairs will "cancel out" and only the
+# desired number will follow.
 def find_it(arr):
     result = 0
     for num in arr:
