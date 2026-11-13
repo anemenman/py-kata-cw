@@ -26,3 +26,8 @@ This is code-golf so shortest code is winner. The limit of solution is set to 40
 
 def X(s):
     return s.count('1') % 2
+
+
+assert X('1 0 0 1 0') == 0
+assert X('1 0 1 1 1 0 0 1 0 0 0 0') == 1
+assert X('1 0 0 1 0 1 0 0 1 0 1 0 1 0 1 0 1 0') == 0
