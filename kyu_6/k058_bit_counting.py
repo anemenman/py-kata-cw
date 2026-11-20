@@ -1,0 +1,29 @@
+"""
+Bit Counting
+
+Write a function that takes an integer as input, and returns the number of bits that are equal to one in the binary
+representation of that number. You can guarantee that input is non-negative.
+
+Example: The binary representation of 1234 is 10011010010, so the function should return 5 in this case
+"""
+
+
+def count_bits(n: int) -> int:
+    return n.bit_count()
+
+
+def count_bits_v2(n: int) -> int:
+    return bin(n).count('1')
+
+
+assert count_bits(0) == 0
+assert count_bits(4) == 1
+assert count_bits(7) == 3
+assert count_bits(9) == 2
+assert count_bits(10) == 2
+
+assert count_bits_v2(0) == 0
+assert count_bits_v2(4) == 1
+assert count_bits_v2(7) == 3
+assert count_bits_v2(9) == 2
+assert count_bits_v2(10) == 2
